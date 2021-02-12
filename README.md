@@ -9,7 +9,7 @@ If you want to display Teads ads in your iOS application through Smart Ads Serve
 - ![Platform: iOS 9+](https://img.shields.io/badge/Platform-iOS%2010%2B-blue.svg?style=flat)
 - ![Xcode: 11.0+](https://img.shields.io/badge/Xcode-11.0+-blue.svg?style=flat)
 - ![SAS SDK: 7.62+](https://img.shields.io/badge/MoPub%20SDK-5.13+-blue.svg?style=flat)
-- ![Teads SDK: 4.8.0+](https://img.shields.io/badge/Teads%20SDK-4.8.0+-blue.svg?style=flat)
+- ![Teads SDK: 4.8.3+](https://img.shields.io/badge/Teads%20SDK-4.8.3+-blue.svg?style=flat)
 
 ## Features
 
@@ -33,7 +33,7 @@ pod 'TeadsSASAdapter'
 ```
 
 2. Run `pod install --repo-update` to install the adapter in your project.
-3. Follow the [Define Custom Event](https://support.teads.tv/support/solutions/articles/36000256729-smart-ad-mediation) step to finish the integration.
+3. Follow the [Define Custom Event](https://support.teads.tv/support/solutions/articles/36000256729-smart-ad-mediation#defining_a_custom_event) step to finish the integration.
 4. You’re done.
 
 #### Manually
@@ -41,10 +41,13 @@ pod 'TeadsSASAdapter'
 1. Integrate latest version of Teads SDK to your project using this [Quick Start Guide](https://support.teads.tv/support/solutions/articles/36000165909-ios).
 2. Download latest release of [`TeadsSASAdapter`](https://github.com/teads/TeadsSDK-iOS/releases/latest).
 3. Drop adapter files in your iOS project.
-4. Follow the [Define Custom Event](https://support.teads.tv/support/solutions/articles/36000256729-smart-ad-mediation-ios) step to finish the integration.
+4. Follow the [Define Custom Event](https://support.teads.tv/support/solutions/articles/36000256729-smart-ad-mediation-ios#defining_a_custom_event) step to finish the integration.
 5. You’re done.
 
 ## Integration Documentation
 
 Integration instructions are available on [Teads SDK Documentation](https://support.teads.tv/support/solutions/articles/36000256729-smart-ad-mediation-ios).
 
+## Changelog
+
+See [CHANGELOG](CHANGELOG.md).

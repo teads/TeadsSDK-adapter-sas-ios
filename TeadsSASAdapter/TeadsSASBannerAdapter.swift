@@ -21,19 +21,18 @@ import TeadsSDK
     
     @objc public func requestBanner(withServerParameterString serverParameterString: String, clientParameters: [AnyHashable : Any], viewController: UIViewController) {
         controller = viewController
-        guard let data = serverParameterString.data(using: .utf8), let parametersDict = try? JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any> else {
-            
+        
+        guard let serverParameter = ServerParameter.instance(from: serverParameterString) else {
             delegate?.mediationBannerAdapter(self, didFailToLoadWithError: TeadsSASErrors.serverParameterError, noFill: false)
-
             return
         }
         
-        guard let placementId = parametersDict["placementId"] as? Int else {
+        guard let placementId = serverParameter.placementId else {
             delegate?.mediationBannerAdapter(self, didFailToLoadWithError: TeadsSASErrors.noPidError, noFill: false)
             return
         }
         
-        let adSettings = TeadsSASAdapterHelper.stringToAdSettings(adSettingsString: parametersDict["teadsAdSettingsKey"] as? String)
+        let adSettings = serverParameter.adSettings
         
         
          let SASVersion = Bundle.init(for: SASAdPlacement.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
