@@ -18,7 +18,10 @@ Pod::Spec.new do |s|
     s.static_framework          = true
     s.requires_arc              = true
     s.source_files              = 'TeadsSASAdapter/**/*{.swift}'
-    s.swift_versions            = ['4.3', '5.0', '5.1']
+    s.swift_versions            = ['5.1']
+
+    s.pod_target_xcconfig       = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    s.user_target_xcconfig      = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
     s.dependency                'TeadsSDK', s.version.to_s
     s.dependency                'Smart-Display-SDK', '>= 7.6.2'
