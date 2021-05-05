@@ -16,21 +16,21 @@ import TeadsSDK
         }
         return "teadsAdSettingsKey=\(adSettingsEscapedString)"
     }
-    
+
     @objc public static func concatAdSettingsToKeywords(keywordsStrings: String, adSettings: TeadsAdSettings) -> String {
         if let adSettingsStrings = teadsAdSettingsToString(adSettings: adSettings) {
             return "\(keywordsStrings);\(adSettingsStrings)"
         }
         return keywordsStrings
     }
-    
+
     static func stringToAdSettings(adSettingsString: String?) -> TeadsAdSettings? {
         if let adSettingsString = adSettingsString?.removingPercentEncoding?.data(using: .utf8) {
         return try? JSONDecoder().decode(TeadsAdSettings.self, from: adSettingsString)
         }
         return nil
     }
-    
+
 }
 
 extension TeadsAdSettings {
@@ -45,14 +45,14 @@ extension TeadsAdSettings {
 struct ServerParameter: Codable {
     var placementId: Int?
     var teadsAdSettingsKey: String?
-    
+
     static func instance(from serverParameterString: String) -> Self? {
         guard let data = serverParameterString.data(using: .utf8) else {
             return nil
         }
         return try? JSONDecoder().decode(Self.self, from: data)
     }
-    
+
     var adSettings: TeadsAdSettings? {
         return TeadsSASAdapterHelper.stringToAdSettings(adSettingsString: teadsAdSettingsKey)
     }
